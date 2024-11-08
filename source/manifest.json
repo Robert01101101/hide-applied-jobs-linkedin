@@ -1,9 +1,9 @@
 {
 	"$schema": "https://json.schemastore.org/chrome-manifest",
-	"name": "Awesome Extension",
+	"name": "Hide Applied Jobs LinkedIn",
 	"version": "0.0.0",
-	"description": "An awesome new browser extension",
-	"homepage_url": "https://github.com/fregante/browser-extension-template",
+	"description": "Hide jobs you have already Applied to from your job search results on LinkedIn",
+	"homepage_url": "https://github.com/Robert01101101/hide-applied-jobs-linkedin/",
 	"manifest_version": 3,
 	"minimum_chrome_version": "121",
 	"browser_specific_settings": {
@@ -23,7 +23,7 @@
 	],
 	"content_scripts": [
 		{
-			"matches": [ "https://github.com/fregante/browser-extension-template/*" ],
+			"matches": [ "https://github.com/Robert01101101/hide-applied-jobs-linkedin/*" ],
 			"js": [ "content.js" ],
 			"css": [ "content.css" ],
 			"run_at": "document_end"
