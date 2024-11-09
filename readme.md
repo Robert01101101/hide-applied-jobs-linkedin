@@ -18,7 +18,7 @@ A simple chrome extension that hides jobs already applied to in the LinkedIn job
 ## Installation
 
 - This extension is currently pending review for release to the Chrome Extension Store.
-- You can also download the latest release from the release section to the right, and [load the extension manually in Chrome](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#google-chrome-opera-vivaldi).
+- You can also download the latest release from the releases section to the right, and [load the extension manually in Chrome](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#google-chrome-opera-vivaldi).
 
 ## Template
 
