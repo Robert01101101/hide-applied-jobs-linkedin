@@ -29,10 +29,6 @@
 		"rules": {
 		}
 	},
-	"dependencies": {
-		"webext-base-css": "^1.4.4",
-		"webext-options-sync": "^4.2.3"
-	},
 	"devDependencies": {
 		"@parcel/config-webextension": "^2.12.1-canary.3290",
 		"@parcel/resolver-default": "^2.0.0-canary.1735",
