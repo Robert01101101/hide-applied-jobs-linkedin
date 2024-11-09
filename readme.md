@@ -10,7 +10,7 @@
 
 A simple chrome plugin that hides jobs already applied to in the LinkedIn job search.
 
-![Sample extension options output](source/icon.png)
+![Icon](source/icon.png)
 
 ## Features
 
@@ -41,3 +41,11 @@ Using [web-ext](https://extensionworkshop.com/documentation/develop/getting-star
 #### Manually
 
 You can also [load the extension manually in Chrome](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#google-chrome-opera-vivaldi) or [Firefox](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#mozilla-firefox).
+
+## Support me
+
+This extension is free, and there is no need to pay me. But if it helps you, I appreciate a coffee :)
+
+<a href="https://www.buymeacoffee.com/rmichels">
+    <img src="media/bmc-button.png" style="width: 150px; height: auto;" alt="Buy Me A Coffee">
+</a>
