@@ -7,7 +7,7 @@
 [link-cws-keys]: https://github.com/fregante/chrome-webstore-upload-keys
 [link-amo-keys]: https://addons.mozilla.org/en-US/developers/addon/api/key
 
-A simple chrome plugin that hides jobs already applied to in the LinkedIn job search.
+A simple chrome extension that hides jobs already applied to in the LinkedIn job search.
 
 ![Icon](source/icon.png)
 
