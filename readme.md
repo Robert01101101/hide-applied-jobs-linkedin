@@ -7,18 +7,21 @@
 [link-cws-keys]: https://github.com/fregante/chrome-webstore-upload-keys
 [link-amo-keys]: https://addons.mozilla.org/en-US/developers/addon/api/key
 
-A simple chrome extension that hides jobs already applied to in the LinkedIn job search.
+A simple Chrome extension that hides jobs already applied to in the LinkedIn job search.
 
 ![Icon](source/icon.png)
 
 ## Features
 
 - Identifies and hides jobs in the list shown by LinkedIn when searching for jobs.
+- Click on the extension icon to configure settings:
+  - Turn the extension off / on
+  - Add additional keywords to hide job listings with: Promotional, On-site, etc.
 
 ## Installation
 
-- This extension is currently pending review for release to the Chrome Extension Store.
-- You can also download the latest release from the releases section to the right, and [load the extension manually in Chrome](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#google-chrome-opera-vivaldi).
+- Simply install from the [Chrome Web Store](https://chromewebstore.google.com/detail/hide-applied-jobs-linkedi/jkoegkdeggghnoenfgjoklfkmihkighf)
+- OR: You can also download the latest release from the releases section to the right, and [load the extension manually in Chrome](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#google-chrome-opera-vivaldi).
 
 ## Template
 
