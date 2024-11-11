@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+    <title>Toggle Extension</title>
+    <style>
+        body {
+            width: 200px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+        #toggle {
+            display: flex;
+            align-items: center;
+        }
+        #toggle input {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Hide Applied Jobs</h3>
+    <div id="toggle">
+        <input type="checkbox" id="jobToggle" checked>
+        <label for="jobToggle">Enabled</label>
+    </div>
+    <div id="status"></div>
+    <button id="save">Save</button>
+    <script src="options.js"></script>
+</body>
+</html>

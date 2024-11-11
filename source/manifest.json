@@ -23,6 +23,17 @@
 			"run_at": "document_end"
 		}
 	],
+	"action": {
+        "default_popup": "options.html",
+        "default_icon": "icon.png"
+    },
+	"permissions": [
+		"storage"
+	],
+	"options_ui": {
+		"page": "options.html",
+		"open_in_tab": false
+	},
 	"background": {
 		"service_worker": "background.js",
 		"type": "module",
