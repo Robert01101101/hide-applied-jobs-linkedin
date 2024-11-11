@@ -1,16 +1,23 @@
 async function init() {
-    // Function to hide job items that contain 'Applied'
+    // Function to hide job items that contain 'Applied' or user-defined keywords
     function hideJobItems() {
         const jobItems = document.querySelectorAll('.jobs-search-results__list-item');
         var jobsHidden = 0;
-        jobItems.forEach(item => {
-            const appliedElement = Array.from(item.querySelectorAll('li')).find(li => li.textContent.trim() === 'Applied');
-            if (appliedElement) {
-                jobsHidden++;
-                item.style.display = 'none'; // Hide the job item
-            }
+
+        // Get user-defined keywords from storage
+        chrome.storage.sync.get(['keywords'], (result) => {
+            const keywords = result.keywords ? result.keywords.split(',').map(k => k.trim()) : [];
+            jobItems.forEach(item => {
+                const appliedElement = Array.from(item.querySelectorAll('li')).find(li => li.textContent.trim() === 'Applied');
+                const containsKeyword = keywords.some(keyword => item.textContent.includes(keyword));
+
+                if (appliedElement || containsKeyword) {
+                    jobsHidden++;
+                    item.style.display = 'none'; // Hide the job item
+                }
+            });
+            console.log(chrome.runtime.getManifest().name, `: Found and hid ${jobsHidden} jobs already applied to or containing specified keywords.`);
         });
-        console.log(chrome.runtime.getManifest().name, `: Found and hid ${jobsHidden} jobs already applied to.`); 
     }
 
     // Function to check the toggle state
