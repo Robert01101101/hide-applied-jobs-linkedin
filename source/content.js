@@ -1,7 +1,7 @@
 async function init() {
     // Function to hide job items that contain 'Applied' or user-defined keywords
     function hideJobItems() {
-        const jobItems = document.querySelectorAll('.jobs-search-results__list-item');
+        const jobItems = document.querySelectorAll('.jobs-search-results__list-item, .scaffold-layout__list-item');
         var jobsHidden = 0;
 
         // Get user-defined keywords from storage
