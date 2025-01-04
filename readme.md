@@ -20,8 +20,9 @@ A simple Chrome extension that hides jobs already applied to in the LinkedIn job
 
 ## Installation
 
-- Simply install from the [Chrome Web Store](https://chromewebstore.google.com/detail/hide-applied-jobs-linkedi/jkoegkdeggghnoenfgjoklfkmihkighf)
-- OR: You can also download the latest release from the releases section to the right, and [load the extension manually in Chrome](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#google-chrome-opera-vivaldi).
+- Chrome: Install from the [Chrome Web Store](https://chromewebstore.google.com/detail/hide-applied-jobs-linkedi/jkoegkdeggghnoenfgjoklfkmihkighf).
+- Firefox: Install from the [Firefox add-ons website](https://addons.mozilla.org/en-CA/firefox/addon/hide-applied-jobs-linkedin/) (Release is pending approval as of January 4th, 2025).
+- OR: You can also download the latest release from the releases section to the right, and [load the extension manually in Chrome](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#google-chrome-opera-vivaldi), or [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing).
 
 ## Template
 
