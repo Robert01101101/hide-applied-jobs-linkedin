@@ -13,10 +13,22 @@
         }
         #toggle {
             display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            margin-bottom: 10px;
+        }
+        #toggle .checkbox-row {
+            display: flex;
             align-items: center;
         }
         #toggle input {
             margin-right: 10px;
+        }
+        #toggle .description {
+            margin-left: 25px;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
         }
         input[type="text"] {
             width: 100%;
@@ -26,13 +38,24 @@
 <body>
     <h3>Hide Applied Jobs LinkedIn</h3>
     <div id="toggle">
-        <input type="checkbox" id="jobToggle" checked>
-        <label for="jobToggle">Enabled</label>
+        <div class="checkbox-row">
+            <input type="checkbox" id="jobToggle" checked>
+            <label for="jobToggle">Hide Jobs</label>
+        </div>
+        <div class="description">
+            Hides jobs you've already applied to, and jobs containing any of the optional additional keywords you've defined
+        </div>
+    </div>
+    <div id="toggle">
+        <div class="checkbox-row">
+            <input type="checkbox" id="caseInsensitiveToggle">
+            <label for="caseInsensitiveToggle">Case-insensitive filtering</label>
+        </div>
     </div>
     <br>
     <div>
         <label for="keywords">Additional Keywords to hide (comma-separated):</label>
-        <input type="text" id="keywords" placeholder="e.g. Promoted,Remote">
+        <input type="text" id="keywords" placeholder="e.g. Promoted,Remote" style="margin-top: 3px;">
     </div>
     <br>
     <div id="status"></div>
