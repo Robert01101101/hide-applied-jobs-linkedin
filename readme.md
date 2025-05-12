@@ -7,7 +7,7 @@
 [link-cws-keys]: https://github.com/fregante/chrome-webstore-upload-keys
 [link-amo-keys]: https://addons.mozilla.org/en-US/developers/addon/api/key
 
-A simple Chrome extension that hides jobs already applied to in the LinkedIn job search.
+A simple browser extension that hides jobs already applied to in the LinkedIn job search.
 
 ![Icon](source/icon.png)
 
@@ -15,22 +15,28 @@ A simple Chrome extension that hides jobs already applied to in the LinkedIn job
 
 - Identifies and hides jobs in the list shown by LinkedIn when searching for jobs.
 - Click on the extension icon to configure settings:
-  - Turn the extension off / on
+  - Turn the extension on / off
   - Add additional keywords to hide job listings with: Promotional, On-site, etc.
+  - Toggle case-sensitivity for keyword filtering
+
+## Disclaimer
+
+This extension is not affiliated with LinkedIn or any of its affiliates or subsidiaries. This is an independent and unofficial extension.
 
 ## Installation
 
 - Chrome: Install from the [Chrome Web Store](https://chromewebstore.google.com/detail/hide-applied-jobs-linkedi/jkoegkdeggghnoenfgjoklfkmihkighf).
-- Firefox: Install from the [Firefox add-ons website](https://addons.mozilla.org/en-CA/firefox/addon/hide-applied-jobs-linkedin/) (Release is pending approval as of January 4th, 2025).
-- OR: You can also download the latest release from the releases section to the right, and [load the extension manually in Chrome](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#google-chrome-opera-vivaldi), or [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing).
+- Firefox: Install from [Add-ons for Firefox](https://addons.mozilla.org/en-CA/firefox/addon/hide-applied-jobs-linkedin/).
+- You can also download the [latest release](https://github.com/Robert01101101/hide-applied-jobs-linkedin/releases), and [load the extension manually in Chrome](https://www.smashingmagazine.com/2017/04/browser-extension-edge-chrome-firefox-opera-brave-vivaldi/#google-chrome-opera-vivaldi), or [Firefox](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing).
 
 ## Template
 
 - This browser extension used the [browser-extension-template](https://github.com/fregante/browser-extension-template) as a starting point for development.
+- The below information is not relevant if you would only like to install and use this extension. It is for software development purposes.
 
-## Getting started
+### Getting started
 
-### 🛠 Build locally
+#### 🛠 Build locally
 
 1. Checkout the copied repository to your local machine eg. with `git clone https://github.com/Robert01101101/hide-applied-jobs-linkedin/`
 1. Run `npm install` to install all required dependencies
@@ -39,7 +45,7 @@ A simple Chrome extension that hides jobs already applied to in the LinkedIn job
 
 The build step will create the `distribution` folder, this folder will contain the generated extension.
 
-### 🏃 Run the extension
+#### 🏃 Run the extension
 
 Using [web-ext](https://extensionworkshop.com/documentation/develop/getting-started-with-web-ext/) is recommended for automatic reloading and running in a dedicated browser instance. Alternatively you can load the extension manually (see below).
 

@@ -10,6 +10,23 @@ async function init() {
             const keywords = result.keywords ? result.keywords.split(',').map(k => k.trim()) : [];
             const caseInsensitive = result.caseInsensitive || false;
             
+            const appliedTranslations = [
+                'Applied',                  // English
+                'Solicitados',              // Spanish
+                'Candidature envoyée',      // French
+                'Beworben',                 // German
+                'Candidatura inviata',      // Italian
+                'Candidatura enviada',      // Portuguese
+                'Sollicitatie verzonden',   // Dutch
+                'Ansökt',                   // Swedish
+                'Søgt',                     // Danish
+                'Søkt',                     // Norwegian
+                'Haettu',                   // Finnish
+                'Zaaplikowano',             // Polish
+                'Přihlášeno',               // Czech
+                'Jelentkezett'              // Hungarian
+            ];
+            
             // Initialize keyword counters
             keywords.forEach(keyword => {
                 keywordMatches[keyword] = 0;
@@ -18,7 +35,7 @@ async function init() {
             jobItems.forEach(item => {
                 const appliedElement = Array.from(item.querySelectorAll('li')).find(li => {
                     const text = li.textContent.trim();
-                    return caseInsensitive ? text.toLowerCase() === 'applied' : text === 'Applied';
+                    return appliedTranslations.includes(text);
                 });
                 
                 let wasHidden = false;
