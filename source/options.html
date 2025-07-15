@@ -3,7 +3,7 @@
 <head>
     <title>Hide Applied Jobs LinkedIn Options</title>
     <style>
-        h3 {
+        h2 {
             color: #385066;
         }
         body {
@@ -11,18 +11,22 @@
             padding: 10px;
             font-family: Arial, sans-serif;
         }
-        #toggle {
+        #mode-toggle {
             display: flex;
-            align-items: flex-start;
             flex-direction: column;
-            margin-bottom: 10px;
         }
-        #toggle .checkbox-row {
+        .action-row, .filter-row {
             display: flex;
             align-items: center;
+            gap: 8px;
+            margin-bottom: 2px;
         }
-        #toggle input {
+        #toggle {
+            margin-top: 18px;
+        }
+        .action-row input[type="radio"], .filter-row input[type="checkbox"] {
             margin-right: 10px;
+            margin-left: 0;
         }
         #toggle .description {
             margin-left: 25px;
@@ -33,21 +37,35 @@
         input[type="text"] {
             width: 100%;
         }
+        .header-label {
+            margin-bottom: 3px;
+        }
     </style>
 </head>
 <body>
-    <h3>Hide Applied Jobs LinkedIn</h3>
-    <div id="toggle">
-        <div class="checkbox-row">
-            <input type="checkbox" id="jobToggle" checked>
-            <label for="jobToggle">Hide Jobs</label>
+    <h2>Hide Applied Jobs LinkedIn</h2>
+    <div id="mode-toggle">
+        <label style="font-weight: bold;" class="header-label">Action on matched jobs:</label>
+        <div class="action-row">
+            <input type="radio" id="modeNone" name="mode" value="none">
+            <label for="modeNone">No action</label>
         </div>
-        <div class="description">
-            Hides jobs you've already applied to, and jobs containing any of the optional additional keywords you've defined
+        <div class="action-row">
+            <input type="radio" id="modeHide" name="mode" value="hide" checked>
+            <label for="modeHide">Hide jobs</label>
+        </div>
+        <div class="action-row">
+            <input type="radio" id="modeHighlight" name="mode" value="highlight">
+            <label for="modeHighlight">Highlight jobs</label>
+        </div>
+        <div class="action-row" id="highlightColorRow" style="display:none;">
+            <label for="highlightColor" style="margin:0;">Highlight color:</label>
+            <input type="color" id="highlightColor" value="#ffeaea" style="width:32px;height:32px;padding:0;border:none;background:none;">
         </div>
     </div>
     <div id="toggle">
-        <div class="checkbox-row">
+        <label style="font-weight: bold; display:block;" class="header-label">Matching options:</label>
+        <div class="filter-row">
             <input type="checkbox" id="caseInsensitiveToggle">
             <label for="caseInsensitiveToggle">Case-insensitive filtering</label>
         </div>

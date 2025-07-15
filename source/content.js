@@ -5,10 +5,12 @@ async function init() {
         let appliedJobsHidden = 0;
         let keywordMatches = {};
 
-        // Get user-defined keywords from storage
-        chrome.storage.sync.get(['keywords', 'caseInsensitive'], (result) => {
+        // Get user-defined keywords and mode from storage
+        chrome.storage.sync.get(['keywords', 'caseInsensitive', 'mode', 'highlightColor'], (result) => {
             const keywords = result.keywords ? result.keywords.split(',').map(k => k.trim()) : [];
             const caseInsensitive = result.caseInsensitive || false;
+            const mode = result.mode || 'none';
+            const highlightColor = result.highlightColor || '#fffbe6';
             
             const appliedTranslations = [
                 'Applied',                  // English
@@ -33,15 +35,28 @@ async function init() {
             });
             
             jobItems.forEach(item => {
+                // Remove highlight class if present
+                item.classList.remove('hajl-highlight');
+
+                // Reset styles
+                item.style.background = '';
+                item.style.border = '';
+                item.style.display = '';
+
+                if (mode === 'none') {
+                    // Do nothing
+                    return;
+                }
+
                 const appliedElement = Array.from(item.querySelectorAll('li')).find(li => {
                     const text = li.textContent.trim();
                     return appliedTranslations.includes(text);
                 });
                 
-                let wasHidden = false;
+                let wasMatched = false;
                 if (appliedElement) {
                     appliedJobsHidden++;
-                    wasHidden = true;
+                    wasMatched = true;
                 }
 
                 // Check each keyword separately to track matches
@@ -53,28 +68,48 @@ async function init() {
                     
                     if (matches) {
                         keywordMatches[keyword]++;
-                        wasHidden = true;
+                        wasMatched = true;
                     }
                 });
 
-                if (wasHidden) {
-                    item.style.display = 'none'; // Hide the job item
+                if (wasMatched) {
+                    if (mode === 'hide') {
+                        item.style.display = 'none';
+                        item.classList.remove('hajl-highlight');
+                        item.style.background = '';
+                        item.style.border = '';
+                    } else if (mode === 'highlight') {
+                        item.style.display = '';
+                        item.classList.add('hajl-highlight');
+                        item.style.background = highlightColor;
+                        item.style.border = `2px solid ${highlightColor}`;
+                        item.style.boxShadow = `0 0 8px ${hexToRgba(highlightColor, 0.55)}`;
+                    }
+                } else {
+                    item.style.display = '';
+                    item.classList.remove('hajl-highlight');
+                    item.style.background = '';
+                    item.style.border = '';
+                    item.style.boxShadow = '';
                 }
             });
 
             // Build detailed log message
             let logMessage = `${chrome.runtime.getManifest().name}: `;
-            logMessage += `Hidden ${appliedJobsHidden} jobs you've applied to`;
-            
-            // Add keyword match details if any keywords matched
-            const totalKeywordMatches = Object.values(keywordMatches).reduce((a, b) => a + b, 0);
-            if (totalKeywordMatches > 0) {
-                logMessage += `, and ${totalKeywordMatches} jobs matching keywords:`;
-                Object.entries(keywordMatches).forEach(([keyword, count]) => {
-                    if (count > 0) {
-                        logMessage += `\n- "${keyword}": ${count} jobs`;
-                    }
-                });
+            if (mode === 'none') {
+                logMessage += `No action taken on jobs.`;
+            } else {
+                logMessage += `${mode === 'hide' ? 'Hidden' : 'Highlighted'} ${appliedJobsHidden} jobs you've applied to`;
+                // Add keyword match details if any keywords matched
+                const totalKeywordMatches = Object.values(keywordMatches).reduce((a, b) => a + b, 0);
+                if (totalKeywordMatches > 0) {
+                    logMessage += `, and ${totalKeywordMatches} jobs matching keywords:`;
+                    Object.entries(keywordMatches).forEach(([keyword, count]) => {
+                        if (count > 0) {
+                            logMessage += `\n- "${keyword}": ${count} jobs`;
+                        }
+                    });
+                }
             }
             
             console.log(logMessage);
@@ -105,6 +140,19 @@ async function init() {
         });
     });
     observer.observe(document.body, { childList: true, subtree: true });
+}
+
+// Helper to convert hex color to rgba with alpha
+function hexToRgba(hex, alpha) {
+    let c = hex.replace('#', '');
+    if (c.length === 3) {
+        c = c[0]+c[0]+c[1]+c[1]+c[2]+c[2];
+    }
+    const num = parseInt(c, 16);
+    const r = (num >> 16) & 255;
+    const g = (num >> 8) & 255;
+    const b = num & 255;
+    return `rgba(${r},${g},${b},${alpha})`;
 }
 
 init();
