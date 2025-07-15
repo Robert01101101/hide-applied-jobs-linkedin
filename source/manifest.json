@@ -1,8 +1,8 @@
 {
 	"$schema": "https://json.schemastore.org/chrome-manifest",
 	"name": "Hide Applied Jobs LinkedIn",
-	"version": "1.0.7",
-	"description": "Hide jobs you have already applied to from your job search results on LinkedIn. Configure options like filters, highlighting, and more.",
+	"version": "1.0.8",
+	"description": "Hide jobs you have already applied to from your job search results on LinkedIn, with configurable options.",
 	"homepage_url": "https://github.com/Robert01101101/hide-applied-jobs-linkedin/",
 	"manifest_version": 3,
 	"minimum_chrome_version": "121",
